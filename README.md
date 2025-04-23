@@ -1,4 +1,4 @@
-# Workshop: Orchestrating an end-to-end Data Engineering Workflow: Leveraging Python in Apache Beam and Airflow
+# Pycon Lithuania 2025 Workshop: Orchestrating an end-to-end Data Engineering Workflow: Leveraging Python in Apache Beam and Airflow
 <img width="2049" alt="image" src="https://github.com/user-attachments/assets/d0cdaa69-638d-40a5-8d8f-df2eb719b673" />
 
 
@@ -1110,7 +1110,10 @@ when run is skipped
 3. **Cloud Storage:** Files flow *uploads → initiated-runs → completed-runs*.  
 4. **Dataflow UI:** Job completes successfully.  
 5. **BigQuery:** Data appears in `py_demo.registrations`.  
+<img width="2049" alt="image" src="https://github.com/user-attachments/assets/07720bb7-9cde-4fbf-b081-bb5bc65bfb86" />
+
 6. **(Optional) Email:** Check inbox for messages.
+<img width="1726" alt="image" src="https://github.com/user-attachments/assets/7cdcf47e-1ed8-4320-aa74-f74ef3061c09" />
 
 ### 6.3. Test Skip Logic (Optional)
 
@@ -1118,7 +1121,7 @@ Upload only **one** CSV file to the trigger bucket; confirm the DAG branches to 
 
 ---
 
-## Section 7: Conclusion & Cleanup (Approx. 5 mins)
+## Section 7: Conclusion & Cleanup
 
 ### 7.1. Conclusion
 
