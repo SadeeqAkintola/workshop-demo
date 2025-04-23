@@ -180,7 +180,7 @@ echo "Default network check/creation attempted."
 
 Background: Org Policies might block Dataflow workers from getting public IPs. This step attempts to allow public IPs for this project.  
 Permissions: Needs Project Owner or Org Policy Admin role. Skip if you lack permissions. The pipeline code includes `no_use_public_ips: True` as a workaround.
-
+<img width="2049" alt="image" src="https://github.com/user-attachments/assets/a85be07b-4f2c-4a21-af57-ab0e50816364" />
 ```bash
 # --- Attempt to Allow External IPs (Optional) ---
 echo "Creating policy file policy-allow-external-ip.yaml..."
@@ -190,10 +190,12 @@ listPolicy:
   allValues: ALLOW
 EOL
 
+
 echo "Attempting to apply Org Policy to allow external IPs (may fail due to permissions)..."
 gcloud org-policies set-policy policy-allow-external-ip.yaml --project=$PROJECT_ID
 echo "Org Policy application attempted."
 ```
+<img width="2049" alt="image" src="https://github.com/user-attachments/assets/0b15f162-2a20-48b4-9fe8-dc740ae1a445" />
 
 ### 1.9. Grant Necessary IAM Roles
 
@@ -553,20 +555,30 @@ if __name__ == '__main__':
 
 ```bash
 # --- Test Final Script with DataflowRunner ---
-python beam_pipeline.py   --runner DataflowRunner   --subnetwork="https://www.googleapis.com/compute/v1/projects/${PROJECT_ID}/regions/${REGION}/subnetworks/default"   --service_account_email=$SA_EMAIL
-  # Add --use_public_ips if needed
+python beam_pipeline.py \
+  --runner DataflowRunner \
+  --temp_location=gs://py-demo/temp \
+  --staging_location=gs://py-demo/staging \
+  --region=europe-west2 \
+  --subnetwork="https://www.googleapis.com/compute/v1/projects/python-airflow-beam-workflow/regions/europe-west2/subnetworks/default" \
+  --service_account_email=173531701995-compute@developer.gserviceaccount.com \
+  --no_use_public_ips
 ```
 
 Monitor the Dataflow UI until the job succeeds.
+<img width="2049" alt="image" src="https://github.com/user-attachments/assets/e24761a8-8745-455e-821e-a3315dca6fb4" />
 
 ---
+Detailed view of the pipeline run:
+<img width="2049" alt="image" src="https://github.com/user-attachments/assets/0f2b51a2-0de4-4e98-bbef-21fc0bd78e13" />
 
 ## Section 4: Set Up Cloud Composer (Managed Apache Airflow) (Approx. 15 mins + Wait Time)
 
 ### 4.1. Create Cloud Composer Environment via UI
 
 * **Action:** Navigate to **Composer**, click **+ CREATE ENVIRONMENT**, select **Composer 3**, set Name (`airflow-beam-workshop-env`), Location (`europe-west2`), Image Version (latest stable Airflow 2.x), Service Account (Compute Engine default SA: `<YOUR_PROJECT_NUMBER>-compute@...`), leave others default, click **CREATE**.  
-  * *[Workshop Creator: Add relevant screenshots for UI creation]*
+<img width="2049" alt="image" src="https://github.com/user-attachments/assets/aa3e366e-3187-40b1-a751-4a389173ccb9" />
+
 
 ### 4.2. Get Airflow UI URL and DAGs Bucket
 
