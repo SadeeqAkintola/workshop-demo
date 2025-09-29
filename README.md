@@ -204,7 +204,7 @@ Concept: Grant essential permissions to the Compute Engine default service accou
 
 ```bash
 # --- Grant IAM Roles ---
-export SA_EMAIL="${GCP_PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+export SA_EMAIL="${GCP_PROJECT_NUMBER}-developer.gserviceaccount.com"
 
 if [[ "$GCP_PROJECT_NUMBER" == "YOUR-PROJECT-NUMBER" || -z "$GCP_PROJECT_NUMBER" ]]; then
   echo "ERROR: GCP_PROJECT_NUMBER not set correctly. Cannot grant roles."
@@ -562,7 +562,7 @@ python beam_pipeline.py \
   --staging_location=gs://py-demo/staging \
   --region=europe-west2 \
   --subnetwork="https://www.googleapis.com/compute/v1/projects/python-airflow-beam-workflow/regions/europe-west2/subnetworks/default" \
-  --service_account_email=173531701995-compute@developer.gserviceaccount.com \
+  --service_account_email={GCP_PROJECT_NUMBER}-compute@developer.gserviceaccount.com \
   --no_use_public_ips
 ```
 
