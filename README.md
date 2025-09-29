@@ -1,4 +1,4 @@
-# Pycon Lithuania 2025 Workshop: Orchestrating an end-to-end Data Engineering Workflow: Leveraging Python in Apache Beam and Airflow
+# Pycon 2025 Workshop: Orchestrating an end-to-end Data Engineering Workflow: Leveraging Python in Apache Beam and Airflow
 <img width="2049" alt="image" src="https://github.com/user-attachments/assets/d0cdaa69-638d-40a5-8d8f-df2eb719b673" />
 
 
